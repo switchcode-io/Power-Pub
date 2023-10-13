@@ -22,7 +22,7 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add ./*
+        git add *
         git commit -m "Embed API key in all files"
         git push -u origin main
   
