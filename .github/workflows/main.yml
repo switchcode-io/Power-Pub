@@ -1,15 +1,30 @@
-name: My Workflow
+name: Embed API Key
 on:
   push:
     branches:
-    - main
+      - main
 
 jobs:
-  my_job:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-    - name: Hello world action
-      with: # Set the secret as an input
-        super_secret: ${{ secrets.SuperSecret }}
-      env: # Or as an environment variable
-        super_secret: ${{ secrets.SuperSecret }}
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Replace API Key in All Files
+      run: |
+        for file in ./*; do
+          sed -i 's/PLACEHOLDER_API_KEY/${{ secrets.TINY_KEY }}/g' "$file"
+        done
+
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add ./*
+        git commit -m "Embed API key in all files"
+        git push -u origin main
+  
+  deploy:
+    runs-on: ubuntu-latest
