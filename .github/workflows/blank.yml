@@ -1,15 +1,13 @@
-name: My Workflow
 on:
   push:
     branches:
-    - main
-
-jobs:
-  my_job:
+      - master
+jobs: 
+  create_env_file_job:
     runs-on: ubuntu-latest
-      steps:
-      - name: Hello world action
-      with: # Set the secret as an input
-        super_secret: ${{ secrets.TINY_KEY}}
-      env: # Or as an environment variable
-        TINY_KEY: ${{ secrets.TINY_KEY }}
+    steps:
+      - name: Create .env file
+        uses: ozaytsev86/create-env-file@v1
+        with:
+          INPUT_ENV_TINY: ${{ secrets.INPUT_ENV_TINY }}
+          INPUT_ENV_TINY: ${{ secrets.INPUT_ENV_TINY }}
