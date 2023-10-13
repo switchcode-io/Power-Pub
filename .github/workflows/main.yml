@@ -26,5 +26,3 @@ jobs:
         git commit -m "Embed API key in all files"
         git push -u origin main
   
-  deploy:
-    runs-on: ubuntu-latest
