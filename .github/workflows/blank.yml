@@ -1,13 +1,7 @@
-on:
-  push:
-    branches:
-      - master
-jobs: 
-  create_env_file_job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Create .env file
-        uses: ozaytsev86/create-env-file@v1
-        with:
-          INPUT_ENV_TINY: ${{ secrets.INPUT_ENV_TINY }}
-          INPUT_ENV_TINY: ${{ secrets.INPUT_ENV_TINY }}
+- name: Deploy dynamic secrets
+  uses: kornicameister/gh-secrets-action@master
+  with:
+    repository: kornicameister/gh-secrets-action
+    token: ${{ secrets.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 }}
+    secrets: |
+      TINY_URL: q2aalnqpy4v5jhj6ld9m7zc2bninkerr8hms02u7s3a4awgr
