@@ -7,5 +7,9 @@ on:
 jobs:
   my_job:
     runs-on: ubuntu-latest
-    env:
-      TINY_KEY:${{secrets.TINY_KEY}}
+      steps:
+      - name: Hello world action
+      with: # Set the secret as an input
+        super_secret: ${{ secrets.TINY_KEY}}
+      env: # Or as an environment variable
+        TINY_KEY: ${{ secrets.TINY_KEY }}
