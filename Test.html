@@ -2,7 +2,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src="https://cdn.tiny.cloud/1/${TINY_KEY}/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <?php
+    $INY_KEY =
+getenv("TINY_KEY");
+  echo "<script src='https://cdn.tiny.cloud/1/$TINY_KEY/tinymce/5/tinymce.min.js' referrerpolicy='origin'></script>";
+  ?>
 </head>
 <body>
   <textarea id="custom-toolbar-button" rec4gKOoMzvBLk3Ul="p-i-d">
