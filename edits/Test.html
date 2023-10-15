@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.tiny.cloud/1/${TINY_KEY}/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+</head>
+<body>
+  <textarea id="custom-toolbar-button" rec4gKOoMzvBLk3Ul="p-i-d">
+    <h2>How to Find FTP Credentials on SiteGround</h2>
+<h3>Section 1: Accessing SiteGround Control Panel</h3>
+<p>As a new customer on SiteGround, you can easily find your FTP credentials by following these steps:</p>
+<p>1. Log in to your SiteGround hosting account by accessing their website.</p>
+<p>2. Navigate to the "My Accounts" tab and click on it.</p>
+<p>3. You will be directed to the SiteGround Control Panel, where you can manage various aspects of your hosting.</p>
+
+<h3>Section 2: Locating FTP Credentials</h3>
+<p>Now that you are in the Control Panel, finding your FTP credentials is a breeze:</p>
+<p>1. Look for the "Websites" tab and click on it.</p>
+<p>2. From the drop-down menu, select the website for which you want to find the FTP credentials.</p>
+<p>3. Scroll down to the "FTP Accounts" section of the webpage.</p>
+<p>4. You will see a list of FTP accounts related to your website. Locate the FTP account for which you need the credentials.</p>
+<p>5. Click on the three dots (...) next to the FTP account to expand the options.</p>
+<p>6. Choose "Show Password" to reveal the password associated with the FTP account.</p>
+<p>7. Make a note of the FTP username and password as they will be required when connecting to your website via FTP.</p>
+
+<p>With this information, you should now be able to find your FTP credentials on SiteGround and use them to manage your website files effortlessly. If you encounter any difficulties, feel free to reach out to SiteGround's customer support for assistance.</p>
+  </textarea>
+  <script>
+var textareaId;
+var content;
+    
+tinymce.init({
+  selector: 'textarea#custom-toolbar-button',
+  min_height: 720,
+  plugins: 'ai mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
+  toolbar: 'customInsertButton customDateButton undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+  setup: (editor) => {
+
+    const toTimeHtml = (date) => `<time datetime="${date.toString()}">${date.toDateString()}</time>`;
+
+    editor.ui.registry.addButton('customDateButton', {
+  text: 'Update',
+    icon: 'Upload',
+  tooltip: 'Click to update your Pub',
+  enabled: false,
+
+  
+  onAction: (_) => {
+    // editor.insertContent(toTimeHtml(new Date()));
+    textareaId = editor.getParam('rec4gKOoMzvBLk3Ul');
+    content = editor.getContent();
+    console.log(content);
+  fetch('https://hook.us1.make.com/xgxtp191f6h9fs4x71oyrx4mkt04dyip', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        content: content,
+        powerpub_id: 'rec4gKOoMzvBLk3Ul'
+      })
+    }).then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+    }).catch(error => {
+      console.error('There was a problem:', error);
+    });
+  },
+      
+});
+  },
+  content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
+});
+    
+
+  </script>
+</body>
+</html>
