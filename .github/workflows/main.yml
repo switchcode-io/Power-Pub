@@ -1,17 +1,16 @@
 name: Embed API Key
+uses: actions/setup-node@v3
 on:
   push:
     branches:
       - main
-runs:
-  using: 'node12'
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout Code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Replace API Key in All Files
       run: |
