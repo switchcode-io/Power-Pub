@@ -1,22 +1,15 @@
-on:
-name: GH Secrets
-description: |
-  Creates and updates your repository secrets.
-  Ideal to setup some dynamic credentials in CI jobs :)
-inputs:
-  repository:
-    required: false
-    description: |
-      Repository where secrets ought to be updated. This is an optional
-      parameter and, if not set, it defaults to current repository.
-  token:
-    required: true
-    description: |
-      Due to the scope of a token accessible in Github Actions
-      context, a personal access token is required to make this action work.
+name: My Workflow
 
-      This token should be have at least `repo` scope.
-  steps:
-  - name: Hello world action
-    with: # Set the secret as an input
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  my-job:
+    runs-on: ubuntu-latest
+    env:
       TINY_KEY: ${{ secrets.TINY_KEY }}
+    steps:
+      - name: My Step
+        run: echo $TINY_KEY
