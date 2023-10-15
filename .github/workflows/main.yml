@@ -1,28 +1,27 @@
+yaml
 name: Embed API Key
-uses: actions/setup-node@v3
 on:
   push:
     branches:
       - main
 jobs:
   build:
-    runs-on: ubuntu-latest
-
+    runs_on: ubuntu-latest
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v3
+      - name: Checkout Code
+        uses: actions/checkout@v2
 
-    - name: Replace API Key in All Files
-      run: |
-        for file in ./*; do
-          sed -i 's/PLACEHOLDER_API_KEY/${{ secrets.TINY_KEY }}/g' "$file"
-        done
+      - name: Replace API Key in All Files
+        run: |
+           for file in ./*; do
+             sed -i 's/PLACEHOLDER_API_KEY/${{ secrets.API_KEY }}/' "$file"
+           done
 
-    - name: Commit changes
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add *
-        git commit -m "Embed API key in all files"
-        git push -u origin main
+      - name: Commit changes
+        run: |
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            git add .
+            git commit -m "Embed API key in all files"
+            git push
   
