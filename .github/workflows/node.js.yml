@@ -1,3 +1,4 @@
+on:
 name: GH Secrets
 description: |
   Creates and updates your repository secrets.
