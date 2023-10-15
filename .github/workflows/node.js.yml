@@ -1,5 +1,4 @@
-name: My Workflow
-
+name: Set secret keys
 on:
   push:
     branches:
