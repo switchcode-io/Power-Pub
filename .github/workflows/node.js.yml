@@ -15,7 +15,7 @@ inputs:
       context, a personal access token is required to make this action work.
 
       This token should be have at least `repo` scope.
-  secrets:
-    required: true
-      secrets:
-         > TINY: KEY
+  steps:
+  - name: Hello world action
+    with: # Set the secret as an input
+      TINY_KEY: ${{ secrets.TINY_KEY }}
