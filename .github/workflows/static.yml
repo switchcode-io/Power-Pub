@@ -41,7 +41,7 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
-  Connect Secrets:
+  Connect-Secrets:
     runs-on: ubuntu-latest
     env:
       TINY_KEY: ${{ secrets.TINY_KEY }}
